@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+  <title>Human Xplorer</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div>
+    <div id="main" class="is-loading">
+      <h1>
+        Human Xplorer<span id="highlight">.</span>
+      </h1>
+    </div>
+
+    <p id="logo">Human Xplorer<span id="highlight">.</span></p>
+
+    <p class="discription">Discover human anatomy in a whole new dimension<span id="highlight">.</span></p>
+    <div class="container1">
+      <p class="start">Getting Started<span id="highlight">.</span></p>
+      <section class="container">
+        <div class="category_container">
+          <div class="content">
+            <div class="explain">
+              <span>1</span>
+              <p>SCAN</p>
+            </div>
+
+            <div class="wrapper">
+              <div class="profile_quote">
+                <p>"Scan the QR code to begin exploring."</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="content">
+            <div class="explain">
+              <span>2</span>
+              <p>TAP</p>
+            </div>
+            <div class="wrapper">
+              <div class="profile_quote">
+                <p>"Follow the generated link provided to proceed."</p>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="explain">
+              <span>3</span>
+              <p>XPLORE</p>
+            </div>
+            <div class="wrapper">
+              <div class="profile_quote">
+                <p>"Seamlessly rotate, zoom, and interact with the 3D model from any angle"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="qr">
+      <p>Xplore 3D AR Models<span id="highlight">.</span></p>
+    </div>
+    <div class="qr-container">
+      <figure>
+        <img id="3D_Brain" alt="Qr image - Brain">
+        <figcaption>3D AR Brain Model</figcaption>
+      </figure>
+      <figure>
+        <img id="3D_Heart" alt="Qr image - Heart">
+        <figcaption>3D AR Heart Model</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- some js -->
+  <script>
+    function getimage(image_name, elementid) {
+      var x = document.getElementById(elementid);
+      fetch('https://aaddu2t5gh.execute-api.us-east-1.amazonaws.com/qrimage/' + image_name)
+        .then(response => response.text()) // Use .text() to read the response body as text
+        .then(data => {
+          // Directly set the image source to the base64 string
+          x.src = "data:image/png;base64," + data;
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+    window.onload = function() {
+      getimage('brainModel', '3D_Brain');
+      getimage('heartModel', '3D_Heart');
+    };
+  </script>
+  <script type="text/javascript">
+    setTimeout(function() {
+      $('#main').fadeToggle();
+    }, 2000);
+  </script>
+
+</body>
+
+</html>

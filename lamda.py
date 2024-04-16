@@ -12,31 +12,33 @@ def generate_qr(url, filename):
     qr.add_data(url)
     qr.make(fit=True)
     img = qr.make_image(fill_color="black", back_color="white")
-    return img
+    byte_arr = io.BytesIO()
+    img.save(byte_arr)
+    byte_arr = byte_arr.getvalue()
+    
+    return byte_arr
 
-def lamda_handler(event, context):
-    # image_bytes = base64.b64decode(event['image'])
-    url = context.request.url
-    image = " "
-    if('brainModel' in url):
-        image = io.BytesIO(generate_qr('https://humananatomy-ar.s3.amazonaws.com/BrainModel.html', '3D_Brain.png'))
+def lambda_handler(event, context):
+    url = event['rawPath']
+    image_bytes = b""
     
-    elif('heartModel' in url):
-        image = io.BytesIO(generate_qr('https://humananatomy-ar.s3.amazonaws.com/heartModel.html', '3D_Heart.png'))
+    if 'brainModel' in url:
+        image_bytes = generate_qr('https://humananatomy-ar.s3.amazonaws.com/BrainModel.html', '3D_Brain.png')
     
+    elif 'heartModel' in url:
+        image_bytes = generate_qr('https://humananatomy-ar.s3.amazonaws.com/heartModel.html', '3D_Heart.png')
+    
+    qr_image_base64 = base64.b64encode(image_bytes).decode('utf-8')
+
     return {
         'statusCode': 200,
         'headers': {
-            'Content-Type': 'image/jpeg'
+            'Content-Type': 'text/plain'
         },
-        'body': image.getvalue()
+        'body': qr_image_base64
     }
 
-# Generate QR code for the Brain model
-# generate_qr('https://humananatomy-ar.s3.amazonaws.com/BrainModel.html', '3D_Brain.png')
 
-# Generate QR code for the Heart model
-# generate_qr('https://humananatomy-ar.s3.amazonaws.com/heartModel.html', '3D_Heart.png')
 
 
 

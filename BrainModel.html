@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Human Xplorer</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+<body>
+  <div id="card">
+    <!-- All you need to put beautiful, interactive 3D content on your site: -->
+    <model-viewer src=" https://cdn.glitch.global/b4ff4f3a-daeb-4cc1-a725-e49307e92cac/Brain.glb?v=1712988531567"
+                  ios-src=" https://cdn.glitch.global/b4ff4f3a-daeb-4cc1-a725-e49307e92cac/Brain_usdz.usdz?v=1712990026031"
+                  poster=" https://cdn.glitch.global/b4ff4f3a-daeb-4cc1-a725-e49307e92cac/jpg_Brain-removebg.png?v=1712988645886"
+                  alt="A 3D model of a Brain"
+                  shadow-intensity="1"
+                  camera-controls="orbit"
+                  auto-rotate="true"
+                  ar="true"
+                  auto-play="true"
+                  interaction-prompt="Tap and drag to Rotate">
+    </model-viewer>
+    <section class="attribution">
+      <span>
+        <h1>3D Brain ar</h1>
+        <p>
+          Temporal lobe: Processes auditory information and is involved in memory and emotion.
+        </p>
+        <p>
+          Frontal lobe: Responsible for higher cognitive functions such as decision making, problem-solving, and voluntary movement.
+        </p>
+        <p>
+          Parietal lobe: Processes sensory information such as touch, temperature, and pain, and is involved in spatial awareness and perception.
+        </p>
+        <p>
+          Occipital lobe: Primarily responsible for visual processing.
+        </p>
+        <p>
+          Cerebrum: Largest part of the brain, responsible for higher brain functions such as thinking, perceiving, and planning.
+        </p>
+        <p>
+          Brain stem: Controls basic life functions such as breathing, heart rate, and consciousness.
+        </p>
+      </span>
+    </section>
+    
+  </div>
+  
+  
+  <!-- 💁 Include both scripts below to support all browsers! -->
+
+  <!-- Loads <model-viewer> for modern browsers: -->
+  <script type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.4.0/dist/model-viewer-module.min.js"></script>
+
+</body>
+</html>

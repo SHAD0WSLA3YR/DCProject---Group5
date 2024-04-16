@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Human Xplorer</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- The following libraries and polyfills are recommended to maximize browser support -->
+
+  </head> 
+<body>
+  <div id="card">
+    <!-- All you need to put beautiful, interactive 3D content on your site: -->
+    <model-viewer src=" https://cdn.glitch.global/b4ff4f3a-daeb-4cc1-a725-e49307e92cac/Heart.glb?v=1712988084526"
+                  ios-src=" https://cdn.glitch.global/b4ff4f3a-daeb-4cc1-a725-e49307e92cac/Heart_usdz.usdz?v=1712990030102"
+                  poster=" https://cdn.glitch.global/b4ff4f3a-daeb-4cc1-a725-e49307e92cac/jpg_Heart-removebg.png?v=1712988639171"
+                  alt="A 3D model of a Heart"
+                  shadow-intensity="1"
+                  camera-controls
+                  auto-rotate ar
+                  >
+    </model-viewer>
+    <section class="attribution">
+      <span>
+        <h1>3D Heart</h1>
+      </span>
+      <p>
+        Pulmonary trunk: Artery that carries deoxygenated blood from the right ventricle to the lungs for oxygenation.
+      </p>
+      <p>
+        Right ventricle: Chamber of the heart that pumps deoxygenated blood to the pulmonary trunk for oxygenation in the lungs.
+      </p>
+      <p>
+        Descending aorta: The largest artery in the body that carries oxygen-rich blood from the heart's left ventricle to the rest of the body.
+      </p>
+      <p>
+        Right pulmonary artery: Branch of the pulmonary trunk that carries deoxygenated blood to the right lung for oxygenation.
+      </p>
+    </section>
+    
+  </div>
+  
+  
+  <!-- 💁 Include both scripts below to support all browsers! -->
+  <!-- Loads <model-viewer> for modern browsers: -->
+  <script type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.4.0/dist/model-viewer-module.min.js"></script>
+
+</body>
+</html>
